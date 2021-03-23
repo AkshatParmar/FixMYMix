@@ -12,10 +12,17 @@ import UpdateProfile from "./UpdateProfile"
 
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
+  const [clientID, setClientID] = useState(0);
 
   useEffect(() => {
     fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
+      setCurrentTime(data.date);
+    });
+  }, []);
+
+  useEffect(() => {
+    fetch('/info').then(res => res.json()).then(data => {
+      setClientID(data.client_id);
     });
   }, []);
 
@@ -24,7 +31,8 @@ function App() {
       <header className="App-header">
 
 
-        <p>The current time is {currentTime}.</p>
+        <p>The current date time is {currentTime}.</p>
+        <p>The client ID is {clientID}</p>
       </header>
     </div>
   );
