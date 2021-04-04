@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import logo from "../assets/logo.png" ;
+import "./imgStyles.css";
 
 export default function Login() {
 
@@ -29,9 +31,8 @@ export default function Login() {
 
   return (
     <>
-
-  <Card
-  >
+<img alt="logo" className="photo" src={logo}></img>
+  <Card className="bg-dark text-white">
         <Card.Body>
         <Card.Title>Fix My Mix</Card.Title>
           <h2 className="text-center mb-4"> Please Log In With Your Existing Spotify Account</h2>
