@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `
+### ```
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
   const [clientID, setClientID] = useState(0);
@@ -47,7 +47,7 @@ function App() {
   );
 }
 export default App
-`
+```
 
 Basic code to make API calls to flask in React JS
 
