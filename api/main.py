@@ -3,7 +3,6 @@ from flask_restful import Api, Resource, abort, reqparse
 import os
 import spotipy
 from spotipy import oauth2
-import logger
 
 # Environment variables read from server side
 myClientID = os.environ.get('client_id')
