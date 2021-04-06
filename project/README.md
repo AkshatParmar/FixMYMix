@@ -1,6 +1,9 @@
-To run Mylo 
+To run Mylo Fix My Mix
 
 ## Available Scripts
+
+### `npm install -g yarn`
+To install yarn package manager (Recommended)
 
 In the project directory, you can run:
 
@@ -19,6 +22,34 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `
+function App() {
+  const [currentTime, setCurrentTime] = useState(0);
+  const [clientID, setClientID] = useState(0);
+  useEffect(() => {
+    fetch('/time').then(res => res.json()).then(data => {
+      setCurrentTime(data.date);
+    });
+  }, []);
+  useEffect(() => {
+    fetch('/info').then(res => res.json()).then(data => {
+      setClientID(data.client_id);
+    });
+  }, []);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>The current date time is {currentTime}.</p>
+        <p>The client ID is {clientID}</p>
+      </header>
+    </div>
+  );
+}
+export default App
+`
+
+Basic code to make API calls to flask in React JS
 
 ### `npm test`
 
