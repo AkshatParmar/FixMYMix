@@ -61,6 +61,40 @@ def get_playlists():
 				output = show_tracks(tracks)
 	return playlists
 
+'''
+On dashboard.js
+initiate this call
+User data required:
+FEATURES: 
+- time of the day (hour)
+- duration
+- release year
+
+Each time the model is called --> Get Recommendation
+User:
+	- "Whats next by Drake"
+	- When clicked, we query in the spotify search
+	- we get the track_id
+	- Thats the input (could be an dictionary)
+	- The input is searched through Spotipy for track features
+	- Results are observed and then the model is run
+	 on those results
+	- It's finding a sequence 10 total, including
+	the first song inputted (in the case of list, still
+	the first song of the list)
+this data needs to be stored in Firebase to be used by model
+''' 
+
+# @app.route('/feed')
+# def profile_feed(user_id):
+
+
+# @app.route('/search')
+# def search_song(query):
+# 	# query is regular text
+	
+
+
 
 
 class SpotipyMethods(Resource):
