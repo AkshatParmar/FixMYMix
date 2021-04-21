@@ -3,8 +3,23 @@ import { Card,CardDeck, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import logo from "../assets/logo.png" ;
-
+import queryString from 'query-string';
 import "./imgStyles.css";
+
+
+const parsed = queryString.parse(window.location.search);
+const access_token = parsed.access_token;
+
+fetch('https://api.spotify.com/v1/me', {
+  headers: {'Authorization': 'Bearer ' + access_token}
+}).then(response => response.json())
+.then(data => console.log(data))
+
+fetch('https://api.spotify.com/v1/me/playlists', {
+  headers: {'Authorization': 'Bearer ' + access_token}
+}).then(response => response.json())
+.then(data => console.log(data))
+
 
 export default function Dashboard() {
    
@@ -41,6 +56,21 @@ export default function Dashboard() {
         </Button>
         </Card.Body>
       </Card>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+      
+      {/* Login with Spotify button*/}
+      <button onClick={() => window.location='http://localhost:8888/login' }
+      style={{padding: '20px','font-size': '30px', 'margin-top': '20px'}}>
+        Authenticate with Spotify
+      </button>
+      </div>
+
       <div className="w-100 text-center mt-2">
         {/* <Button variant="link" onClick={handleLogout}>
           Log Out

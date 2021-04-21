@@ -58,6 +58,14 @@ export default function Login() {
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+
+      {/* Login with Spotify button*/}
+      <button onClick={() => window.location='http://localhost:8888/login' }
+      style={{padding: '20px','font-size': '30px', 'margin-top': '20px'}}>
+        Sign in with Spotify
+        </button>
+      
+      
     </>
   )
 }
