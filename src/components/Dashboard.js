@@ -10,15 +10,23 @@ import "./imgStyles.css";
 const parsed = queryString.parse(window.location.search);
 const access_token = parsed.access_token;
 
+// User Info
 fetch('https://api.spotify.com/v1/me', {
   headers: {'Authorization': 'Bearer ' + access_token}
 }).then(response => response.json())
 .then(data => console.log(data))
-
+// Playlists
 fetch('https://api.spotify.com/v1/me/playlists', {
   headers: {'Authorization': 'Bearer ' + access_token}
 }).then(response => response.json())
 .then(data => console.log(data))
+// Search Drake
+fetch('https://api.spotify.com/v1/search?q=Drake&type=artist', {
+  headers: {'Authorization': 'Bearer ' + access_token}
+}).then(response => response.json())
+.then(data => console.log(data))
+// Search song
+
 
 
 export default function Dashboard() {
@@ -65,7 +73,7 @@ export default function Dashboard() {
       >
       
       {/* Login with Spotify button*/}
-      <button onClick={() => window.location='http://localhost:8888/login' }
+      <button onClick={() => window.location='https://fixmymixbackend.herokuapp.com/login' }
       style={{padding: '20px','font-size': '30px', 'margin-top': '20px'}}>
         Authenticate with Spotify
       </button>
